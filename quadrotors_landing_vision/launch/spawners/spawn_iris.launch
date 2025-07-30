@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<!--
+  This file is part of the uav_landing_sim distribution (https://github.com/dimianx/uav_landing_sim).
+  Copyright (c) 2024-2025 Dmitry Anikin <dmitry.anikin@proton.me>.
+
+  This program is free software: you can redistribute it and/or modify  
+  it under the terms of the GNU General Public License as published by  
+  the Free Software Foundation, version 3.
+
+  This program is distributed in the hope that it will be useful, but 
+  WITHOUT ANY WARRANTY; without even the implied warranty of 
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License 
+  along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<launch>
+
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+  
+  <arg name="vehicle" default="iris_bottom_fpv"/>
+  <arg name="est" default="ekf2"/>
+  <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
+  <arg name="ID" default="0"/>
+  <arg name="fcu_url" default="udp://:14540@localhost:14580"/>
+
+  <env name="PX4_SIM_MODEL" value="$(arg vehicle)" />
+  <env name="PX4_ESTIMATOR" value="$(arg est)" />
+  <arg name="interactive" default="true"/>
+
+  <arg unless="$(arg interactive)" name="px4_command_arg1" value="-d"/>
+    <arg     if="$(arg interactive)" name="px4_command_arg1" value=""/>
+    <node name="sitl" pkg="px4" type="px4" output="screen"
+        args="$(find px4)/build/px4_sitl_default/etc -s etc/init.d-posix/rcS $(arg px4_command_arg1)" required="true"/>
+
+  <node name="$(anon vehicle_spawn)" 
+    pkg="gazebo_ros" type="spawn_model" output="screen" 
+    args="-sdf -file $(arg sdf) -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)"/>
+    
+  <include file="$(find mavros)/launch/px4.launch">
+    <arg name="fcu_url" value="$(arg fcu_url)"/>
+    <arg name="gcs_url" value=""/>
+    <arg name="tgt_system" value="$(eval 1 + arg('ID'))"/>
+    <arg name="tgt_component" value="1"/>
+  </include>
+</launch>

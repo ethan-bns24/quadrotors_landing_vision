@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  devel:
+    image: ethan-bns24/quadrotors_landing_vision
+:devel
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+      target: devel
+      args:
+        - UID=${UID:-1000}
+        - GID=${UID:-1000}
+        - USERNAME=${USERNAME:-devuser}
+    stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: host
+    privileged: True
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+      - ../quadrotors_landing_vision:/quadrotors_landing_vision/workspace/src/quadrotors_landing_vision:rw
+      - ../.catkin/build/:/quadrotors_landing_vision/workspace/build:rw
+      - ../.catkin/devel:/quadrotors_landing_vision/workspace/devel:rw
+      - ../.catkin/logs/:/quadrotors_landing_vision/workspace/logs:rw
+    user: ${USERNAME:-devuser}
+    command: sleep infinity

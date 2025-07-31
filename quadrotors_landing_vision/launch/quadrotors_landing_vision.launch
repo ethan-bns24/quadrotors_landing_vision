@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!--
-  This file is part of the uav_landing_sim distribution (https://github.com/dimianx/uav_landing_sim).
+  This file is part of the quadrotors_landing_vision distribution (https://github.com/dimianx/quadrotors_landing_vision).
   Copyright (c) 2024-2025 Dmitry Anikin <dmitry.anikin@proton.me>.
 
   This program is free software: you can redistribute it and/or modify  
@@ -26,7 +26,7 @@
   <arg name="output" default="results.csv"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find uav_landing_sim)/worlds/$(arg world_name)"/>
+    <arg name="world_name" value="$(find quadrotors_landing_vision)/worlds/$(arg world_name)"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -34,13 +34,13 @@
     <arg name="verbose" value="false"/>
   </include>
 
-  <include file="$(find uav_landing_sim)/launch/spawners/spawn_iris.launch">
+  <include file="$(find quadrotors_landing_vision)/launch/spawners/spawn_iris.launch">
     <arg name="x" value="0.0" />
     <arg name="y" value="0.0" />
     <arg name="z" value="0.1" />
   </include>
 
-  <include file="$(find uav_landing_sim)/launch/spawners/spawn_husky.launch">
+  <include file="$(find quadrotors_landing_vision)/launch/spawners/spawn_husky.launch">
     <arg name="robot_namespace" value="/husky" />
     <arg name="x" value="0" />
     <arg name="y" value="-8" />
@@ -49,30 +49,30 @@
   </include>
 
   <group if="$(eval positioning == 'aruco')">
-    <include file="$(find uav_landing_sim)/launch/positioning/aruco_estimator.launch"/> 
+    <include file="$(find quadrotors_landing_vision)/launch/positioning/aruco_estimator.launch"/> 
   </group>
 
   <group if="$(eval positioning == 'uwb')">
-    <include file="$(find uav_landing_sim)/launch/sensor_sim/uwb_simulator.launch"/>
-    <include file="$(find uav_landing_sim)/launch/positioning/uwb_lqr_vanc_estimator.launch"/> 
+    <include file="$(find quadrotors_landing_vision)/launch/sensor_sim/uwb_simulator.launch"/>
+    <include file="$(find quadrotors_landing_vision)/launch/positioning/uwb_lqr_vanc_estimator.launch"/> 
   </group>
 
- <include file="$(find uav_landing_sim)/launch/drone/drone_fsm.launch">
+ <include file="$(find quadrotors_landing_vision)/launch/drone/drone_fsm.launch">
     <arg name="attempts_count" value="$(arg attempts_count)"/>
     <arg name="output" value="$(arg output)"/>
   </include>
 
-  <include file="$(find uav_landing_sim)/launch/ugv/ugv_control.launch">
+  <include file="$(find quadrotors_landing_vision)/launch/ugv/ugv_control.launch">
   </include>
 
   <group if="$(eval positioning == 'aruco')">
-    <include file="$(find uav_landing_sim)/launch/drone/landing_controller.launch">
+    <include file="$(find quadrotors_landing_vision)/launch/drone/landing_controller.launch">
       <arg name="pose_topic" value="/positioning/aruco"/>
     </include> 
   </group>
 
   <group if="$(eval positioning == 'uwb')">
-    <include file="$(find uav_landing_sim)/launch/drone/landing_controller.launch">
+    <include file="$(find quadrotors_landing_vision)/launch/drone/landing_controller.launch">
       <arg name="pose_topic" value="/positioning/uwb_lqr_vanc"/>
     </include> 
   </group>

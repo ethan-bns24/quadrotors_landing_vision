@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>uav_landing_sim</name>
+  <name>quadrotors_landing_vision</name>
   <version>1.0.0</version>
-  <description>The uav_landing_sim package</description>
+  <description>The quadrotors_landing_vision package</description>
   <maintainer email="dmitry.anikin@proton.me">Dmitry Anikin</maintainer>
   
   <license>GPL-3.0</license>

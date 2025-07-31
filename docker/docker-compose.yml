@@ -3,7 +3,6 @@ version: "3.7"
 services:
   devel:
     image: ethan-bns24/quadrotors_landing_vision
-:devel
     build:
       context: ..
       dockerfile: ./docker/Dockerfile

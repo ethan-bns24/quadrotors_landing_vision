@@ -4,7 +4,7 @@ import itertools
 import numpy as np
 
 from gazebo_msgs.msg import ModelStates
-from uav_landing_sim.msg import UWBRange
+from quadrotors_landing_vision.msg import UWBRange
 
 from uwb_interpolation.rmse_interpolation import RMSESplineInterpolator
 from uwb_interpolation.sigma_interpolation import SigmaSplineInterpolator

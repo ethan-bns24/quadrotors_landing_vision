@@ -1,23 +1,5 @@
 <?xml version="1.0"?>
 
-<!--
-  This file is part of the uav_landing_sim distribution (https://github.com/dimianx/uav_landing_sim).
-  Copyright (c) 2025 Dmitry Anikin.
-
-  This program is free software: you can redistribute it and/or modify  
-  it under the terms of the GNU General Public License as published by  
-  the Free Software Foundation, version 3.
-
-  This program is distributed in the hope that it will be useful, but 
-  WITHOUT ANY WARRANTY; without even the implied warranty of 
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
-  General Public License for more details.
-
-  You should have received a copy of the GNU General Public License 
-  along with this program. If not, see <http://www.gnu.org/licenses/>.
--->
-
-
 <robot name="husky" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find husky_description)/urdf/husky.urdf.xacro" />
@@ -26,12 +8,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/platform.dae" scale="0.5 0.5 0.5"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/platform.dae" scale="0.5 0.5 0.5"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/platform.dae" scale="0.5 0.5 0.5"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/platform.dae" scale="0.5 0.5 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -46,12 +28,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -66,12 +48,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -86,12 +68,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -106,12 +88,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/uwb_anchor.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -126,12 +108,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/marker.dae" />
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/marker.dae" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/marker.dae" />
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/marker.dae" />
       </geometry>
     </collision>
   </link>
@@ -146,12 +128,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </collision>
   </link>
@@ -166,12 +148,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </collision>
   </link>
@@ -186,12 +168,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </collision>
   </link>
@@ -206,12 +188,12 @@
     <visual>
       <cast_shadows>true</cast_shadows>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://uav_landing_sim/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
+        <mesh filename="package://quadrotors_landing_vision/models/husky/meshes/diode.dae" scale="0.4 0.4 0.4"/>
       </geometry>
     </collision>
   </link>

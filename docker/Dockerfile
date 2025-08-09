@@ -7,6 +7,7 @@ ENV ROS_WORKSPACE=/quadrotors_landing_vision/workspace
 SHELL ["/bin/bash", "-c"]
 
 COPY ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 # ========================

@@ -172,9 +172,7 @@ class LandingController():
         self.vel_pub.publish(msg)
 
     def start(self):
-        while not rospy.is_shutdown():
-            current_pos = [0, 0, 8]  # Default position, should be updated by external controller
-            
+        while not rospy.is_shutdown():            
             if not self.land_ena:
                 self.target_lost = False
                 self._send_vel([0, 0, 0])
@@ -188,7 +186,7 @@ class LandingController():
                     self.search_mode = True
                 
                 # Execute search pattern
-                command = self._execute_search_pattern(current_pos)
+                command = self._execute_search_pattern(self.current_drone_pos)
                 self._send_vel(command)
                 self.rate.sleep()
                 continue

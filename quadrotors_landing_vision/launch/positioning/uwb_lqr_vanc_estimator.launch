@@ -1,6 +1,0 @@
-<launch>
-    <node name="uwb_lqr_vanc_estimator" pkg="quadrotors_landing_vision" type="uwb_lqr_vanc_estimator.py" respawn="false" output="screen">
-        <rosparam file="$(find quadrotors_landing_vision)/config/positioning/uwb_lqr_vanc_estimator.yaml" command="load"/>
-    </node>
-
-</launch>

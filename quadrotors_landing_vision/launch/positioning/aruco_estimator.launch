@@ -1,6 +1,0 @@
-<launch>
-    <node name="aruco_estimator" pkg="quadrotors_landing_vision" type="aruco_estimator.py" respawn="false" output="screen">
-        <rosparam file="$(find quadrotors_landing_vision)/config/positioning/aruco_estimator.yaml" command="load"/>
-    </node>
-
-</launch>

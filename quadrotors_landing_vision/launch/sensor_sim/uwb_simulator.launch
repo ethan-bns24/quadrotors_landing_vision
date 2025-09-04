@@ -1,6 +1,0 @@
-<launch>
-    <node name="uwb_simulator" pkg="quadrotors_landing_vision" type="uwb_simulator.py" respawn="false" output="screen">
-        <rosparam file="$(find quadrotors_landing_vision)/config/sensor_sim/uwb_simulator.yaml" command="load"/>
-    </node>
-
-</launch>

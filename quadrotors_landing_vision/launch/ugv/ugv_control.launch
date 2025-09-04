@@ -1,6 +1,0 @@
-<launch>
-    <node name="ugv_control" pkg="quadrotors_landing_vision" type="ugv_control.py" respawn="false" output="screen" launch-prefix="bash -c 'sleep 25.0; $0 $@' ">
-        <rosparam file="$(find quadrotors_landing_vision)/config/ugv/ugv_control.yaml" command="load"/>
-    </node>
-
-</launch>
